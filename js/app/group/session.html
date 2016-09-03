@@ -1,0 +1,98 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="header studentName">
+                Name:
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="col-md-2 header nameId">Name Identification</div>
+            <div class="col-md-2 header peerId">Peer Interaction</div>
+            <div class="col-md-2 header groupInstr">Group Instruction</div>
+            <div class="col-md-2 header groupInstrDiscr">Group Instruction With Discrimination</div>
+            <div class="col-md-2 header answerQuest">Answer Question</div>
+            <div class="col-md-2 header partSong">Participation in Song</div>
+        </div>
+    </div>
+    <div class="row" ng-repeat="student in class track by $index">
+        <div class="col-md-2 studentName">
+            <div class="student studentName">{{student.name}}</div>
+        </div>
+        <div class="col-md-10" ng-show="collectData">
+            <div class="col-md-2 student nameId">
+                <button ng-click="positiveInteraction(student, $index, 'nameId')">
+                    <i class="glyphicon glyphicon-plus"></i>
+                </button>
+                <button ng-click="missedInteraction(student, $index, 'nameId')">
+                    <i class="glyphicon glyphicon-minus"></i>
+                </button>
+            </div>
+            <div class="col-md-2 student peerId">
+                <button ng-click="positiveInteraction(student, $index, 'peerId')">
+                    <i class="glyphicon glyphicon-plus"></i>
+                </button>
+                <button ng-click="missedInteraction(student, $index, 'peerId')">
+                    <i class="glyphicon glyphicon-minus"></i>
+                </button>
+            </div>
+            <div class="col-md-2 student groupInstr">
+                <button ng-click="positiveInteraction(student, $index, 'groupInstr')">
+                    <i class="glyphicon glyphicon-plus"></i>
+                </button>
+                <button ng-click="missedInteraction(student, $index, 'groupInstr')">
+                    <i class="glyphicon glyphicon-minus"></i>
+                </button>
+            </div>
+            <div class="col-md-2 student groupInstrDiscr">
+                <button ng-click="positiveInteraction(student, $index, 'groupInstrDiscr')">
+                    <i class="glyphicon glyphicon-plus"></i>
+                </button>
+                <button ng-click="missedInteraction(student, $index, 'groupInstrDiscr')">
+                    <i class="glyphicon glyphicon-minus"></i>
+                </button>
+            </div>
+            <div class="col-md-2 student answerQuest">
+                <button ng-click="positiveInteraction(student, $index, 'answerQuest')">
+                    <i class="glyphicon glyphicon-plus"></i>
+                </button>
+                <button ng-click="missedInteraction(student, $index, 'answerQuest')">
+                    <i class="glyphicon glyphicon-minus"></i>
+                </button>
+            </div>
+            <div class="col-md-2 student partSong">
+                <button ng-click="positiveInteraction(student, $index, 'partSong')">
+                    <i class="glyphicon glyphicon-plus"></i>
+                </button>
+                <button ng-click="missedInteraction(student, $index, 'partSong')">
+                    <i class="glyphicon glyphicon-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-10" ng-if="!collectData">
+            <div class="col-md-2 student nameId">
+                <div>{{student.nameId}}</div>
+            </div>
+            <div class="col-md-2 student peerId">
+                <div>{{student.peerId}}</div>
+            </div>
+            <div class="col-md-2 student groupInstr">
+                <div>{{student.groupInstr}}</div>
+            </div>
+            <div class="col-md-2 student groupInstrDiscr">
+                <div>{{student.groupInstrDiscr}}</div>
+            </div>
+            <div class="col-md-2 student answerQuest">
+                <div>{{student.answerQuest}}</div>
+            </div>
+            <div class="col-md-2 student partSong">
+                <div>{{student.partSong}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button ng-click="addStudent">Add Student</button>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-push-10"><button ng-click="showData()">Submit</button></div>
+    </div>
+</div>

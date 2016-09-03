@@ -7,31 +7,7 @@
 		
 	</head>
 	<body ng-app='SocialSkillsDC'>
-        <div ng-controller="mainCtrl">
-        <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <a class="navbar-brand" href="http://creatingbrighterfutures.com">Social Skills</a>
-        </div>
-        </nav>
-        <div class="container body">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-
-                    <div><h1>{{message}}</h1></div>
-                    <div class="col-md-6">
-                        <p>Name: <input type="text" ng-model="name"></p>
-                        <h3>{{name}}</h3>
-                    </div>
-                    <div class="col-md-6">
-                        <button ng-click="hello()">Hello World!</button><br>
-                        <button ng-click="changeName()">Say Hello</button>
-                        
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        </div>
+        <div ui-view></div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -41,5 +17,13 @@
         <script type="text/javascript" src="js/vendors/angular-ui-router.js"></script>
 
         <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/app/config/local.config.js"></script>
+
+        <script type="text/javascript" src="js/app/header/header.controller.js"></script>
+        <script type="text/javascript" src="js/app/user/profile.controller.js"></script>
+        <script type="text/javascript" src="js/app/user/signin.controller.js"></script>
+        <script type="text/javascript" src="js/app/user/logout.controller.js"></script>
+        <script type="text/javascript" src="js/app/home/home.controller.js"></script>
+        <script type="text/javascript" src="js/app/group/session.controller.js"></script>
 	</body>
 </html>

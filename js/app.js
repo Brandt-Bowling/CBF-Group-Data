@@ -1,42 +1,50 @@
 'use strict';
 
 angular.module('SocialSkillsDC', ['ui.router'])
-    // .config(function($stateProvider, $urlRouterProvider) {
-    //     $urlRouterProvider.otherwise('/');
+    .config(function($stateProvider, $urlRouterProvider, $compileProvider) {
+        $urlRouterProvider.otherwise('/');
 
-    //     $stateProvider
-    //         .state('socialskillsdc', {
-    //             url: '',
-    //             abstract:true
-    //         })
-    //         .state('socialskillsdc.home', {
-    //             url: '/',
-    //             templateUrl: 'home/home.html',
-    //             controller: 'home/home.controller.js'
-    //         })
-    //         .state('socialskillsdc.groupsession', {
-    //             url: '/groupsession',
-    //             templateUrl: 'group/session.html',
-    //             controller: 'group/session.controller.js'
-    //         })
-    //     ;
-    // })
-    .controller('mainCtrl', ['$scope', function($scope){
-        var toggle;
-        var messageOne = "Testing";
-        var messageTwo = "Hello, World!";
-        var messageThree = "Hello, ";
+        // $compileProvider.debugInfoEnabled(false);
+        // $compileProvider.commentDirectivesEnabled(false);
+        // $compileProvider.cssClassDirectivesEnabled(false);
 
-        $scope.message = messageOne;
-
-        $scope.hello = function() {
-            $scope.message = toggle ? messageOne : messageTwo;
-            toggle = !toggle;
-        };
-
-        $scope.changeName = function() {
-            $scope.message = $scope.name ? messageThree + $scope.name : messageThree+'Brandt';
-        };
-
-    }])
+        $stateProvider
+            .state('socialskillsdc', {
+                url: '',
+                templateUrl: 'js/app/header/header.html',
+                controller: 'headerCtrl',
+                abstract:true
+            })
+            .state('socialskillsdc.home', {
+                url: '/',
+                templateUrl: 'js/app/home/home.html',
+                controller: 'homeCtrl'
+            })
+            .state('socialskillsdc.user', {
+                url: '/user',
+                templateUrl: 'js/app/user/profile.html',
+                controller: 'profileCtrl',
+                params: {user:{}}
+            })
+            .state('socialskillsdc.signin', {
+                // Will eventually be moved to server side code
+                url: '/signin',
+                templateUrl: 'js/app/user/signin.html',
+                controller: 'signinCtrl',
+                params: {user:{}}
+            })
+            .state('socialskillsdc.logout', {
+                // Will eventually be moved to server side code
+                url: '/logout',
+                templateUrl: 'js/app/user/logout.html',
+                controller: 'logoutCtrl',
+                params: {user:{}}
+            })
+            .state('socialskillsdc.groupsession', {
+                url: '/groupsession',
+                templateUrl: 'js/app/group/session.html',
+                controller: 'sessionCtrl'
+            })
+        ;
+    })
 ;
