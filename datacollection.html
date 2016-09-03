@@ -1,27 +1,42 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Brandt Bowling Idea #1 aka Group Data Collection</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/datacollection.css"></link>
-        
-    </head>
-    <body>
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <a class="navbar-brand" href="http://creatingbrighterfutures.com">Social Skills</a>
-            </div>
-        </nav>
-        <div class="container body">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <h1>This is data collection</h1>
+        <div>
+            
+            <table class="table">
+                <tr>
+                    <th class="rowHead">Client Initials</th>
+                    <th class="rowHead">Name ID</th>
+                    <th class="rowHead">Peer Interaction</th>
+                    <th class="rowHead">Group Instruction</th>
+                    <th class="rowHead">Group Instruction with Discrimination</th>
+                    <th class="rowHead">Answer Questions</th>
+                    <th class="rowHead">Participating in Song/Rhyme</th>
+                </tr>
+                <tr ng-repeat="client in clientName">
+                    <td> {{ client.name }} </td>
+                    <td>
+                        <span class="glyphicon glyphicon-plus"></span> 
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-plus"></span> 
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </td>  
+                    <td>
+                        <span class="glyphicon glyphicon-plus"></span> 
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-plus"></span> 
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-plus"></span> 
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-plus"></span> 
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </td>                 
+                </tr>
+            </table>
 
-                </div>
-                
-            </div>
         </div>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    </body>
-</html>
