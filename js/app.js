@@ -1,22 +1,19 @@
-var app = angular.
 
-module("SocialSkills", [])
-.controller('DataCollectionController', ['$scope', function($scope) {
-    $scope.clientName = [
-        {
-            name: 'Kid1'
-        },
-        {
-            name: 'Kid2'
-        },
-        {
-            name: 'Kid3'
-        },
-        {
-            name: 'Kid4'
-        },
-        {
-            name: 'Kid5'
-        },
-    ]
-}]);
+var app = angular.module('SocialSkills', ['ngRoute']);
+
+app.config(function($routeProvider) {
+    $routeProvider
+        .when('/index', {
+            controller: 'homeController.js',
+            templateUrl: 'views/homeView.html'
+        })
+        .when('/datacollection', {
+            controller: 'dcController',
+            templateUrl: 'views/datacollection.html'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
+});
+
+
