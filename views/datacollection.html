@@ -10,8 +10,8 @@
                 <th class="rowHead">Answer Questions</th>
                 <th class="rowHead">Participating in Song/Rhyme</th>
             </tr>
-            <tr ng-repeat="client in clientName">
-                <td> {{ client.name }} </td>
+            <tr ng-repeat="client in clientName track by $index">
+                <td> <input type="text" ng-model="clientName[$index].name"></td>
                 <td>
                     <span class="glyphicon glyphicon-plus"></span> 
                     <span class="glyphicon glyphicon-minus"></span>

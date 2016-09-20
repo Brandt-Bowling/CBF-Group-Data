@@ -1,15 +1,17 @@
 
 var app = angular.module('SocialSkills', ['ngRoute']);
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
+    $locationProvider.html5Mode({enabled:true, requireBase: false});
+
     $routeProvider
-        .when('/index', {
-            controller: 'homeController.js',
-            templateUrl: 'views/homeView.html'
+        .when('/', {
+            controller: 'homeController',
+            templateUrl: '../views/homeView.html'
         })
         .when('/datacollection', {
-            controller: 'dcController',
-            templateUrl: 'views/datacollection.html'
+            controller: 'DataCollectionController',
+            templateUrl: '../views/datacollection.html'
         })
         .otherwise({
             redirectTo: '/'

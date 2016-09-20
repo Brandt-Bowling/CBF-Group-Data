@@ -15,5 +15,5 @@ app.controller('DataCollectionController', ['$scope', function($scope) {
         {
             name: 'Kid5'
         }
-    ]
+    ];
 }]);
