@@ -1,19 +1,45 @@
 app.controller('DataCollectionController', ['$scope', function($scope) {
-    $scope.clientName = [
+    $scope.clients = [
         {
-            name: 'Kid1'
+            name: 'Enter Client Initials',
         },
         {
-            name: 'Kid2'
+            name: 'Enter Client Initials',
         },
         {
-            name: 'Kid3'
+            name: 'Enter Client Initials',
         },
         {
-            name: 'Kid4'
+            name: 'Enter Client Initials',           
         },
         {
-            name: 'Kid5'
+            name: 'Enter Client Initials',
         }
     ];
+
+    $scope.positiveInteraction = function(person, index, prop) {
+        console.log('Positive interaction in', prop,'with', person.name, index);
+
+        if(!person.hasOwnProperty(prop)) {
+            person[prop] = 1;
+        } else {
+            person[prop]++;
+        }
+    }
+
+    $scope.negativeInteraction = function(person, index, prop) {
+        console.log('Missed interaction in', prop, 'with', person.name, index);
+
+        if(!person.hasOwnProperty(prop)) {
+            person[prop] = -1;
+        } else {
+            person[prop]--;
+        }
+    }
+
+    $scope.collectData = true;
+
+    $scope.showData = function() {
+        collectData = false;
+    }
 }]);
