@@ -41,5 +41,7 @@ app.controller('DataCollectionController', ['$scope', function($scope) {
 
     $scope.showData = function() {
         collectData = false;
-    }
+    };
+
+
 }]);
