@@ -1,19 +1,19 @@
 app.controller('DataCollectionController', ['$scope', function($scope) {
     $scope.clients = [
         {
-            name: 'Enter Client Initials',
+            name: '',
         },
         {
-            name: 'Enter Client Initials',
+            name: '',
         },
         {
-            name: 'Enter Client Initials',
+            name: '',
         },
         {
-            name: 'Enter Client Initials',           
+            name: '',           
         },
         {
-            name: 'Enter Client Initials',
+            name: '',
         }
     ];
 
