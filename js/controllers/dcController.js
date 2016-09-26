@@ -1,23 +1,32 @@
 app.controller('DataCollectionController', ['$scope', function($scope) {
     $scope.clients = [
         {
-            name: '',
+            name: ''
         },
         {
-            name: '',
+            name: ''
         },
         {
-            name: '',
+            name: ''
         },
         {
-            name: '',           
+            name: ''          
         },
         {
-            name: '',
+            name: ''
         }
     ];
 
-    $scope.positiveInteraction = function(person, index, prop) {
+    $scope.totals = [
+        {nameID: 0},
+        {peerInteraction: 0},
+        {groupInstruction: 0},
+        {groupWithDisc: 0},
+        {answerQuestion: 0},
+        {participateSong: 0}
+    ];
+
+    $scope.positiveInteraction = function(person, index, prop, total) {
         console.log('Positive interaction in', prop,'with', person.name, index);
 
         if(!person.hasOwnProperty(prop)) {
@@ -25,6 +34,8 @@ app.controller('DataCollectionController', ['$scope', function($scope) {
         } else {
             person[prop]++;
         }
+        $scope.totals[total]++;
+        console.log('total=', $scope.totals[total]);
     }
 
     $scope.negativeInteraction = function(person, index, prop) {
@@ -35,6 +46,8 @@ app.controller('DataCollectionController', ['$scope', function($scope) {
         } else {
             person[prop]--;
         }
+        person.totals[prop]++;
+        console.log('total=', person.totals[prop]);
     }
 
     $scope.collectData = true;
@@ -42,6 +55,4 @@ app.controller('DataCollectionController', ['$scope', function($scope) {
     $scope.showData = function() {
         collectData = false;
     };
-
-
 }]);
