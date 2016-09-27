@@ -1,6 +1,6 @@
 <div class="data-collection">  
     <div class="container"> 
-        <table class="table table-striped">
+        <table class="table">
             <tr>
                 <th class="rowHead">Client Initials</th>
                 <th class="rowHead">Name ID</th>
@@ -10,9 +10,9 @@
                 <th class="rowHead">Answer Questions</th>
                 <th class="rowHead">Participating in Song/Rhyme</th>
             </tr>
-            <tr ng-repeat="client in clients track by $index">
+            <tr ng-repeat="client in clients track by $index" ng-show="collectData">
                 <td><input type="text" ng-model="clients[$index].name" placeholder="Enter Initials Here"></td>
-                <td class="client nameID" ng-show="collectData">
+                <td class="client nameID">
                     <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'nameID')">
                         <span class="glyphicon glyphicon-plus"></span> 
                     </button>
