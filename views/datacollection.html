@@ -1,6 +1,6 @@
 <div class="data-collection">  
     <div class="container"> 
-        <table class="table">
+        <table class="table dataCollection">
             <tr>
                 <th class="rowHead">Client Initials</th>
                 <th class="rowHead">Name ID</th>
@@ -60,28 +60,17 @@
                         <span class="glyphicon glyphicon-minus"></span>
                     </button>
                 </td>
-                <div class="col-md-10" ng-if="!collectData">
-                    <div class="col-md-2 client nameId">
-                        <div>{{client.nameId}}</div>
-                    </div>
-                    <div class="col-md-2 clients peerInteraction">
-                        <div>{{client.peerInteraction}}</div>
-                    </div>
-                    <div class="col-md-2 clients groupInstr">
-                        <div>{{client.groupInstr}}</div>
-                    </div>
-                    <div class="col-md-2 clients groupWithDisc">
-                        <div>{{client.groupWithDisc}}</div>
-                    </div>
-                    <div class="col-md-2 clients answerQuestion">
-                        <div>{{client.answerQuestion}}</div>
-                    </div>
-                    <div class="col-md-2 clients participateSong">
-                        <div>{{client.participateSong}}</div>
-                    </div>
-                </div>                
             </tr>
-        </table>
+            <tr class="displayData" ng-repeat="client in clients track by $index" ng-hide="collectData">
+                <td class="name"> {{ clients[$index].name }} </td>
+                <td class="clientResult"> {{ client.nameID }} / {{ client.nameIDTotal }} </td>
+                <td class="clientResult"> {{ client.peerInteraction }} / {{ client.peerInteractionTotal }} </td>
+                <td class="clientResult"> {{ client.groupInstruction }} / {{ client.groupInstructionTotal }} </td>
+                <td class="clientResult"> {{ client.groupWithDisc }} / {{ client.groupWithDiscTotal }} </td>
+                <td class="clientResult"> {{ client.answerQuestion }} / {{ client.answerQuestionTotal }} </td>
+                <td class="clientResult"> {{ client.participateSong }} / {{ client.participateSongTotal }} </td>
+            </tr>  
+        </table>            
         <div class="row">
             <div class="col-md-2 col-md-push-10"><button ng-click="showData()">Submit</button></div>
         </div>
