@@ -1,4 +1,3 @@
-
 var app = angular.module('SocialSkills', ['ngRoute']);
 
 app.config(function($routeProvider, $locationProvider) {
@@ -16,5 +15,3 @@ app.config(function($routeProvider, $locationProvider) {
             redirectTo: '/'
         });
 });
-
-
