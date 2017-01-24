@@ -11,6 +11,10 @@ app.config(function($routeProvider, $locationProvider) {
             controller: 'DataCollectionController',
             templateUrl: '../views/datacollection.html'
         })
+        // .when('/registration', {
+        //     controller: 'registrationController',
+        //     templateUrl: '../views/registration.html'
+        // })
         .otherwise({
             redirectTo: '/'
         });
