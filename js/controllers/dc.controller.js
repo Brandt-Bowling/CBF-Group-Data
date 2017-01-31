@@ -1,4 +1,7 @@
-app.controller('DataCollectionController', ['$scope', function($scope) {
+angular
+    .module('SocialSkills')
+    .controller('DataCollectionController', ['$scope', '$http', function($scope, $http) {
+
     $scope.clients = [
         {name: ''},
         {name: ''},

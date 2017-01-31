@@ -1,21 +1,51 @@
-var app = angular.module('SocialSkills', ['ngRoute']);
+'use strict';
 
-app.config(function($routeProvider, $locationProvider) {
+angular
+    .module('SocialSkills', ['auth0.lock', 'angular-jwt', 'ngMaterial', 'md.data.table', 'ui.router'])
+    .config(function($provide, lockProvider, $urlRouterProvider, $stateProvider, $httpProvider, jwtOptionsProvider, $mdThemingProvider) {
 
-    $routeProvider
-        .when('/', {
-            controller: 'homeController',
-            templateUrl: '../views/homeView.html'
-        })
-        .when('/datacollection', {
-            controller: 'DataCollectionController',
-            templateUrl: '../views/datacollection.html'
-        })
-        // .when('/registration', {
-        //     controller: 'registrationController',
-        //     templateUrl: '../views/registration.html'
-        // })
-        .otherwise({
-            redirectTo: '/'
+        lockProvider.init({
+            clientID: 'FiopVAA30FavmLNDk1z7mIInVHo7stfa',
+            domain: 'brandt-bowling-imaginings.auth0.com',
+            options: {
+                theme: {
+                    logo: '../assets/cbf-logo.jpg',
+                    primaryColor: '#724E9E'
+                },
+                languageDictionary: {
+                    title: 'Creating Brighter Futures'
+                }
+            }
         });
-});
+
+        jwtOptionsProvider.config({
+            tokenGetter: function() {
+                return localStorage.getItem('id_token');
+            },
+            whiteListedDomains: ['localhost'],
+            unauthenticatedRedirectPath: '/home'
+        });
+
+        $mdThemingProvider.theme('default')
+            .primaryPalette('purple')
+            .accentPalette('yellow');
+
+        $urlRouterProvider.otherwise('/home');
+
+        $stateProvider
+            .state('home', {
+                url: '/home',
+                templateUrl: '../views/homeView.html',
+                controller: 'homeController as vm',
+            })
+            .state('datacollection', {
+                url: '/datacollection',
+                templateUrl: '../views/datacollection.html',
+                controller: 'DataCollectionController',
+                data: {
+                    requiresLogin : true
+                }
+            });
+
+        $httpProvider.interceptors.push('jwtInterceptor');
+    });

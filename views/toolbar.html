@@ -1,0 +1,12 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <h2>
+            <a ui-sref="home">CBF Group Data</a>
+        </h2>
+        
+        <span flex></span>
+
+        <md-button aria-label="Login" ng-if="!isAuthenticated" ng-click="toolbar.authService.login()">Login/Register</md-button>
+        <md-button aria-label="Logout" ng-if="isAuthenticated" ng-click="toolbar.authService.logout()">Logout</md-button>
+    </div>
+</md-toolbar>
