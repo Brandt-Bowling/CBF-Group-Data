@@ -1,4 +1,4 @@
-<md-content>
+<md-content class="home">
     <md-card md-whiteframe="7" class="card">
       <!--<img src="card-image.png" class="md-card-image" alt="image caption">-->
       <md-card-content class="card-text">
@@ -6,7 +6,7 @@
         <p>Make sure you are registered and logged in or else you can't have access to the data collection page</p>
       </md-card-content>
       <md-card-actions layout="row" layout-align="end center">
-        <md-button class="md-raised md-accent" aria-label="data collection" ui-sref="datacollection">Start Group</md-button>
+        <md-button class="md-raised md-accent" aria-label="data collection" ng-if="isAuthenticated" ui-sref="datacollection">Start Group</md-button>
       </md-card-actions>
     </md-card>
 </md-content>

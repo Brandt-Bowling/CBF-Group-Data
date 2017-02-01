@@ -1,78 +1,84 @@
-<div class="data-collection">  
-    <div class="container">
-        <table class="table dataCollection">
-            <tr>
-                <th class="rowHead">Client Initials</th>
-                <th class="rowHead">Name ID</th>
-                <th class="rowHead">Peer Interaction</th>
-                <th class="rowHead">Group Instruction</th>
-                <th class="rowHead">Group Instruction with Discrimination</th>
-                <th class="rowHead">Answer Questions</th>
-                <th class="rowHead">Participating in Song/Rhyme</th>
-            </tr>
-            <tr ng-repeat="client in clients track by $index" ng-show="collectData">
-                <td><input type="text" ng-model="clients[$index].name" placeholder="Enter Initials Here"></td>
-                <td class="client nameID">
-                    <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'nameID')">
+<md-content>
+    <md-card>
+        <md-table-container>
+            <table md-table>
+                <thead md-head>
+                    <tr md-row>
+                        <th md-column>Client Initials</th>
+                        <th md-column>Name ID</th>
+                        <th md-column>Peer Interaction</th>
+                        <th md-column>Group Instruction</th>
+                        <th md-column>Group Instruction with Discrimination</th>
+                        <th md-column>Answer Questions</th>
+                        <th md-column>Participating in Song/Rhyme</th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-repeat="client in clients track by $index" ng-show="collectData">
+                        <td><input type="text" ng-model="clients[$index].name" placeholder="Enter Initials Here"></td>
+                        <td md-cell class="client nameID">
+                            <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'nameID')">
                         <span class="glyphicon glyphicon-plus"></span> 
                     </button>
-                    <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'nameID')">
+                            <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'nameID')">
                         <span class="glyphicon glyphicon-minus"></span>
                     </button>
-                </td>
-                <td class="client peerInt">
-                    <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'peerInteraction')">
+                        </td>
+                        <td md-cell class="client peerInt">
+                            <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'peerInteraction')">
                         <span class="glyphicon glyphicon-plus"></span> 
                     </button>
-                    <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'peerInteraction')">
+                            <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'peerInteraction')">
                         <span class="glyphicon glyphicon-minus"></span>
                     </button>
-                </td>  
-                <td class="client groupInst">
-                    <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'groupInstruction')">
+                        </td>
+                        <td md-cell class="client groupInst">
+                            <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'groupInstruction')">
                         <span class="glyphicon glyphicon-plus"></span> 
                     </button>
-                    <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'groupInstruction')">
+                            <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'groupInstruction')">
                         <span class="glyphicon glyphicon-minus"></span>
                     </button>
-                </td>
-                <td class="client groupInstDisc">
-                    <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'groupWithDisc')">
+                        </td>
+                        <td md-cell class="client groupInstDisc">
+                            <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'groupWithDisc')">
                         <span class="glyphicon glyphicon-plus"></span> 
                     </button>
-                    <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'groupWithDisc')">
+                            <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'groupWithDisc')">
                         <span class="glyphicon glyphicon-minus"></span>
                     </button>
-                </td>
-                <td class="client answerQuest">
-                    <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'answerQuestion')">
+                        </td>
+                        <td md-cell class="client answerQuest">
+                            <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'answerQuestion')">
                         <span class="glyphicon glyphicon-plus"></span> 
                     </button>
-                    <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'answerQuestion')">
+                            <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'answerQuestion')">
                         <span class="glyphicon glyphicon-minus"></span>
                     </button>
-                </td>
-                <td class="client partSong">
-                    <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'participateSong')">
+                        </td>
+                        <td md-cell class="client partSong">
+                            <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'participateSong')">
                         <span class="glyphicon glyphicon-plus"></span> 
                     </button>
-                    <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'participateSong')">
+                            <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'participateSong')">
                         <span class="glyphicon glyphicon-minus"></span>
                     </button>
-                </td>
-            </tr>
-            <tr class="displayData" ng-repeat="client in clients track by $index" ng-hide="collectData">
-                <td class="name"> {{ clients[$index].name }} </td>
-                <td class="clientResult"> {{ client.nameID }} / {{ client.nameIDTotal }} </td>
-                <td class="clientResult"> {{ client.peerInteraction }} / {{ client.peerInteractionTotal }} </td>
-                <td class="clientResult"> {{ client.groupInstruction }} / {{ client.groupInstructionTotal }} </td>
-                <td class="clientResult"> {{ client.groupWithDisc }} / {{ client.groupWithDiscTotal }} </td>
-                <td class="clientResult"> {{ client.answerQuestion }} / {{ client.answerQuestionTotal }} </td>
-                <td class="clientResult"> {{ client.participateSong }} / {{ client.participateSongTotal }} </td>
-            </tr>  
-        </table>            
-        <div class="row">
-            <div class="col-md-2 col-md-push-10"><button ng-click="showData()">Submit</button></div>
-        </div>
-    </div>
-</div>
+                        </td>
+                    </tr>
+                    <tr md-row class="displayData" ng-repeat="client in clients track by $index" ng-hide="collectData">
+                        <td md-cell class="name"> {{ clients[$index].name }} </td>
+                        <td md-cell class="clientResult"> {{ client.nameID }} / {{ client.nameIDTotal }} </td>
+                        <td md-cell class="clientResult"> {{ client.peerInteraction }} / {{ client.peerInteractionTotal }} </td>
+                        <td md-cell class="clientResult"> {{ client.groupInstruction }} / {{ client.groupInstructionTotal }} </td>
+                        <td md-cell class="clientResult"> {{ client.groupWithDisc }} / {{ client.groupWithDiscTotal }} </td>
+                        <td md-cell class="clientResult"> {{ client.answerQuestion }} / {{ client.answerQuestionTotal }} </td>
+                        <td md-cell class="clientResult"> {{ client.participateSong }} / {{ client.participateSongTotal }} </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-md-2 col-md-push-10"><button ng-click="showData()">Submit</button></div>
+            </div>
+        </md-table-container>
+    </md-card>
+</md-content>
