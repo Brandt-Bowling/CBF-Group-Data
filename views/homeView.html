@@ -5,6 +5,9 @@
         <h2>Welcome to this nifty tool to help keep group data!</h2>
         <p>Make sure you are registered and logged in or else you can't have access to the data collection page</p>
       </md-card-content>
+      <md-card-content class="card-text" ng-if="!isAuthenticated">
+        <p>You're not logged in! Please sign in or register to take data and the button will show up here ----------------------></p>
+      </md-card-content>
       <md-card-actions layout="row" layout-align="end center">
         <md-button class="md-raised md-accent" aria-label="data collection" ng-if="isAuthenticated" ui-sref="datacollection">Start Group</md-button>
       </md-card-actions>

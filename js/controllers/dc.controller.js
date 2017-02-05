@@ -44,4 +44,8 @@ angular
     $scope.showData = function() {
         $scope.collectData = false;
     };
+
+    $scope.hideData = function() {
+        $scope.collectData = true;
+    }
 }]);
