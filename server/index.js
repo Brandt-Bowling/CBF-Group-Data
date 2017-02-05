@@ -11,13 +11,17 @@ var authCheck = jwt({
     audience: 'FiopVAA30FavmLNDk1z7mIInVHo7stfa'
 });
 
-app.get('/api/public', function(req, res) {
-    res.json({ message: "Hello from public"});
+app.set('port', (process.env.PORT || 5000));
+
+app.use(express.static(__dirname));
+
+// views is directory for all template files
+app.set('views', __dirname + '/views');
+
+app.get('/', function(request, response) {
+  response.render('index');
 });
 
-app.get('/api/private', authCheck, function(req, res) {
-    res.json({ message: "Hello from private"});
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
 });
-
-app.listen(3001);
-console.log('Listening on 3001');
