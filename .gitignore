@@ -1,3 +1,4 @@
 npm-debug.log
 .eslintrc.json
 node_modules
+/server/app/node_modules
