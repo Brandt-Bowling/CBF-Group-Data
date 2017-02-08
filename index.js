@@ -6,6 +6,7 @@ var path = require('path');
 
 app.use(cors());
 
+//attach jwt that is stored in local storage to header for http requests
 var authCheck = jwt({
     secret: new Buffer('q3Vnp5j_RAZ-Ymsacq1Y7-pTVo6eVR_jI-_j3gUWUf1Bk_k65vvziWvxqh5Wdb9P'),
     audience: 'FiopVAA30FavmLNDk1z7mIInVHo7stfa'
@@ -13,13 +14,12 @@ var authCheck = jwt({
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static(__dirname + '/app'));
+//set static files to www folder
+app.use(express.static(__dirname + '/www'));
 
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-
-app.get('/', function(request, response) {
-  response.render('index');
+//render single index file for front end
+app.get('*', function(request, response) {
+  response.sendfile('./www/index.html');
 });
 
 app.listen(app.get('port'), function() {
