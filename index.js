@@ -19,7 +19,7 @@ app.use(express.static(__dirname + '/www'));
 
 //render single index file for front end
 app.get('*', function(request, response) {
-  response.sendfile('./www/index.html');
+  response.sendFile('./www/index.html');
 });
 
 app.listen(app.get('port'), function() {

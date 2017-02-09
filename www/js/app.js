@@ -9,7 +9,7 @@ angular
             domain: 'brandt-bowling-imaginings.auth0.com',
             options: {
                 theme: {
-                    logo: '../www/assets/cbf-logo.jpg',
+                    logo: '../assets/cbf-logo.jpg',
                     primaryColor: '#724E9E'
                 },
                 languageDictionary: {
