@@ -16,6 +16,7 @@ app.set('port', (process.env.PORT || 5000));
 
 //set static files to www folder
 app.use(express.static(path.join(__dirname, '/www')));
+app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));
 
 //render single index file for front end
 app.get('/', function(request, response) {
