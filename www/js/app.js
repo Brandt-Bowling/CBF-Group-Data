@@ -1,9 +1,11 @@
+(function () {
 'use strict';
 
 angular
     .module('SocialSkills', ['auth0.lock', 'angular-jwt', 'ngMaterial', 'md.data.table', 'ui.router'])
     .config(function($provide, lockProvider, $urlRouterProvider, $stateProvider, $httpProvider, jwtOptionsProvider, $mdThemingProvider) {
 
+        //initialize sign-in widget and customize thumbnail && text
         lockProvider.init({
             clientID: 'FiopVAA30FavmLNDk1z7mIInVHo7stfa',
             domain: 'brandt-bowling-imaginings.auth0.com',
@@ -17,7 +19,7 @@ angular
                 }
             }
         });
-
+        //configure jwt
         jwtOptionsProvider.config({
             tokenGetter: function() {
                 return localStorage.getItem('id_token');
@@ -25,7 +27,7 @@ angular
             whiteListedDomains: ['localhost'],
             unauthenticatedRedirectPath: '/home'
         });
-
+        //set colors for material design theme
         $mdThemingProvider.theme('default')
             .primaryPalette('purple')
             .accentPalette('yellow');
@@ -46,6 +48,7 @@ angular
                     requiresLogin : true
                 }
             });
-
+        //push the jwt onto the array of http interceptors
         $httpProvider.interceptors.push('jwtInterceptor');
     });
+})();
