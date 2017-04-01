@@ -1,22 +1,19 @@
 <md-content>
-    <md-card>
+    <md-card layout="row">
         <md-table-container>
             <table md-table>
                 <thead md-head>
                     <tr md-row>
                         <th md-column>Client Initials</th>
-                        <th md-column>Name ID</th>
-                        <th md-column>Peer Interaction</th>
-                        <th md-column>Group Instruction</th>
-                        <th md-column>Group Instruction <br /> with Discrimination</th>
-                        <th md-column>Answer Questions</th>
-                        <th md-column>Participating in Song/Rhyme</th>
+                        <th md-column ng-repeat="target in dataTarget"><input type="text" ng-model="dataTarget[$index].name" placeholder="Insert Target"></th>
                     </tr>
                 </thead>
                 <tbody md-body>
                     <tr md-row ng-repeat="client in clients track by $index" ng-show="collectData">
-                        <td md-cell><md-input-container class="initials"><input type="text" ng-model="clients[$index].name" placeholder="Enter Initials Here"></md-input-container></td>
-                        <td md-cell class="client nameID">
+                        <td md-cell>
+                            <md-input-container class="initials"><input type="text" ng-model="clients[$index].name" placeholder="Enter Initials Here"></md-input-container>
+                        </td>
+                        <!--<td md-cell class="client nameID">
                             <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'nameID')">
                             <span class="glyphicon glyphicon-plus"></span> 
                             </button>
@@ -63,7 +60,7 @@
                             <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'participateSong')">
                             <span class="glyphicon glyphicon-minus"></span>
                             </button>
-                        </td>
+                        </td>-->
                     </tr>
                     <tr md-row class="displayData" ng-repeat="client in clients track by $index" ng-hide="collectData">
                         <td md-cell class="name"> {{ clients[$index].name }} </td>
@@ -76,8 +73,26 @@
                     </tr>
                 </tbody>
             </table>
-            <md-button class="show-btn md-raised md-accent" ng-if="collectData" ng-click="showData()">See Results</md-button>
-            <md-button class="show-btn md-raised md-accent" ng-if="!collectData" ng-click="hideData()">Back to Data Collection</md-button>
+
         </md-table-container>
     </md-card>
 </md-content>
+<div class="container" layout"row" layout-align="center end">
+    <md-button class="show-btn md-raised md-accent" ng-if="collectData" ng-click="showData()">See Results</md-button>
+    <md-button class="show-btn md-raised md-accent" ng-if="!collectData" ng-click="hideData()">Back to Data Collection</md-button>
+    <md-fab-speed-dial md-direction="up" class="md-fling md-fab-bottom-right">
+        <md-fab-trigger>
+            <md-button aria-label="menu" class="md-fab">
+                <md-icon class="material-icons">add</md-icon>
+            </md-button>
+        </md-fab-trigger>
+        <md-fab-actions>
+            <md-button aria-label="client" ng-click="addClient()" class="md-fab md-raised md-mini">
+                <md-icon class="material-icons">person add</md-icon>
+            </md-button>
+            <md-button aria-label="target" ng-click="addTarget()" class="md-fab md-raised md-mini">
+                <md-icon class="material-icons">assessment</md-icon>
+            </md-button>
+        </md-fab-actions>
+    </md-fab-speed-dial>
+</div>

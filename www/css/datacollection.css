@@ -1,5 +1,14 @@
-button.show-btn {
-    left: 80%;
+button.show-btn{
+    display: table-cell;
+    vertical-align: bottom;
+    position: absolute;
+    bottom: 2.5%;
+    right: 85%;
+}
+
+.container {
+    display: table;
+    
 }
 
 .initials {
@@ -10,4 +19,17 @@ button.show-btn {
 td, md-cell {
     text-align: right;
     width: 13%;
+}
+
+md-content {
+    position: relative;
+}
+
+.material-icons {
+    margin: auto;
+    vertical-align: middle;
+}
+
+.md-fab:hover .md-fab.md-focused {
+    background-color: #000 !important;
 }

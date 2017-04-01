@@ -38,7 +38,7 @@ angular
             .state('home', {
                 url: '/home',
                 templateUrl: '../views/homeView.html',
-                controller: 'homeController as vm',
+                controller: 'homeController',
             })
             .state('datacollection', {
                 url: '/datacollection',
