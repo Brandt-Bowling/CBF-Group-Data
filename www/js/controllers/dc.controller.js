@@ -26,7 +26,7 @@ angular
                 person[prop]++;
                 person[propTotal]++;
             }
-            console.log('total in', prop, '=', person[propTotal]);
+            console.log('total in', prop, '=', person[propTotal], person);
         }
 
         $scope.negativeInteraction = function (person, index, prop) {

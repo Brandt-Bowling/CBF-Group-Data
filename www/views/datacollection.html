@@ -13,6 +13,14 @@
                         <td md-cell>
                             <md-input-container class="initials"><input type="text" ng-model="clients[$index].name" placeholder="Enter Initials Here"></md-input-container>
                         </td>
+                        <td md-cell ng-repeat="target in dataTarget">
+                            <md-button class="md-icon-button md-primary" aria-label="positive" ng-click="positiveInteraction(client, $index, target.name)">
+                                <md-icon class="material-icons">add</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button md-primary" aria-label="negative" ng-click="negativeInteraction(client, $index, target.name)">
+                                <md-icon class="material-icons">remove</md-icon>
+                            </md-button>
+                        </td>
                         <!--<td md-cell class="client nameID">
                             <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'nameID')">
                             <span class="glyphicon glyphicon-plus"></span> 
@@ -64,12 +72,13 @@
                     </tr>
                     <tr md-row class="displayData" ng-repeat="client in clients track by $index" ng-hide="collectData">
                         <td md-cell class="name"> {{ clients[$index].name }} </td>
-                        <td md-cell class="clientResult"> {{ client.nameID }} / {{ client.nameIDTotal }} </td>
+                        <td md-cell ng-repeat="target in dataTarget"> {{ client[target.name] }} / {{ client[target.name + 'Total'] }} </td>
+                        <!--<td md-cell class="clientResult"> {{ client.nameID }} / {{ client.nameIDTotal }} </td>
                         <td md-cell class="clientResult"> {{ client.peerInteraction }} / {{ client.peerInteractionTotal }} </td>
                         <td md-cell class="clientResult"> {{ client.groupInstruction }} / {{ client.groupInstructionTotal }} </td>
                         <td md-cell class="clientResult"> {{ client.groupWithDisc }} / {{ client.groupWithDiscTotal }} </td>
                         <td md-cell class="clientResult"> {{ client.answerQuestion }} / {{ client.answerQuestionTotal }} </td>
-                        <td md-cell class="clientResult"> {{ client.participateSong }} / {{ client.participateSongTotal }} </td>
+                        <td md-cell class="clientResult"> {{ client.participateSong }} / {{ client.participateSongTotal }} </td>-->
                     </tr>
                 </tbody>
             </table>
@@ -77,7 +86,7 @@
         </md-table-container>
     </md-card>
 </md-content>
-<div class="container" layout"row" layout-align="center end">
+<div class="container" layout "row" layout-align="center end" ng-cloak>
     <md-button class="show-btn md-raised md-accent" ng-if="collectData" ng-click="showData()">See Results</md-button>
     <md-button class="show-btn md-raised md-accent" ng-if="!collectData" ng-click="hideData()">Back to Data Collection</md-button>
     <md-fab-speed-dial md-direction="up" class="md-fling md-fab-bottom-right">
