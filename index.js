@@ -12,6 +12,7 @@ require('./app/routes.js')(app);
 
 // configuration ===================================================================================================================
 
+require('./config/database.js');
 app.use(express.static(path.join(__dirname, '/www')));                            //set the static files location
 app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));  //finally getting the scripts to load on the html!
 
