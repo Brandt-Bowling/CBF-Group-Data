@@ -1,12 +1,19 @@
-var path = require("path");
-module.exports = function(app) {
-    //api goes here
-    //
-    //
-    //
+var User = require('./models/groupData');
+var express = require('express');
+var router = express.Router();
+//api goes here
+router.post('/results', function (request, response) {
+    var brandt = new User();
+    brandt.name = request.body.name;
+    brandt.save(function (err, brandt) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(brandt);
+        }
 
-    //render single index file for front end
-    app.get('/', function(request, response) {
-        response.sendFile(path.resolve("www/index.html"));
     });
-};
+    response.send('asl;dkjf;l');
+});
+
+module.exports = router;

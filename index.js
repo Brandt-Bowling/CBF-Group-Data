@@ -4,15 +4,27 @@ var jwt = require('express-jwt');
 var cors = require('cors');
 var path = require('path');
 var port = process.env.PORT || 5000;
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var database = require('./config/database.js');
+var routes = require('./app/routes');
 app.use(cors());
+
+// body-parser middleware ==========================================================================================================================
+app.use(bodyParser.json());
 
 // routes ==========================================================================================================================
 
-require('./app/routes.js')(app);
+routes.use('/api', routes);
+
+//render single index file for front end
+app.get('/', function (request, response) {
+    response.sendFile(path.resolve("www/index.html"));
+});
 
 // configuration ===================================================================================================================
 
-require('./config/database.js');
+mongoose.connect(database.url);                                                   //initialize connection to database
 app.use(express.static(path.join(__dirname, '/www')));                            //set the static files location
 app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));  //finally getting the scripts to load on the html!
 
