@@ -10,12 +10,12 @@ var database = require('./config/database.js');
 var routes = require('./app/routes');
 app.use(cors());
 
-// body-parser middleware ==========================================================================================================================
+// body-parser middleware ==========================================================================================================
 app.use(bodyParser.json());
 
 // routes ==========================================================================================================================
 
-routes.use('/api', routes);
+app.use('/api', routes);
 
 //render single index file for front end
 app.get('/', function (request, response) {
@@ -25,6 +25,7 @@ app.get('/', function (request, response) {
 // configuration ===================================================================================================================
 
 mongoose.connect(database.url);                                                   //initialize connection to database
+var db = mongoose.connection;
 app.use(express.static(path.join(__dirname, '/www')));                            //set the static files location
 app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));  //finally getting the scripts to load on the html!
 
