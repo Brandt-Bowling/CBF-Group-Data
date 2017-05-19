@@ -1,9 +1,8 @@
 button.show-btn{
     display: table-cell;
     vertical-align: bottom;
-    position: absolute;
     bottom: 2.5%;
-    right: 85%;
+    margin-top: 10%;
 }
 
 .container {

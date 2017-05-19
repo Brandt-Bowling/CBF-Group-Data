@@ -21,64 +21,15 @@
                                 <md-icon class="material-icons">remove</md-icon>
                             </md-button>
                         </td>
-                        <!--<td md-cell class="client nameID">
-                            <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'nameID')">
-                            <span class="glyphicon glyphicon-plus"></span> 
-                            </button>
-                            <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'nameID')">
-                            <span class="glyphicon glyphicon-minus"></span>
-                            </button>
-                        </td>
-                        <td md-cell class="client peerInt">
-                            <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'peerInteraction')">
-                            <span class="glyphicon glyphicon-plus"></span> 
-                            </button>
-                            <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'peerInteraction')">
-                            <span class="glyphicon glyphicon-minus"></span>
-                            </button>
-                        </td>
-                        <td md-cell class="client groupInst">
-                            <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'groupInstruction')">
-                            <span class="glyphicon glyphicon-plus"></span> 
-                            </button>
-                            <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'groupInstruction')">
-                            <span class="glyphicon glyphicon-minus"></span>
-                            </button>
-                        </td>
-                        <td md-cell class="client groupInstDisc">
-                            <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'groupWithDisc')">
-                            <span class="glyphicon glyphicon-plus"></span> 
-                            </button>
-                            <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'groupWithDisc')">
-                            <span class="glyphicon glyphicon-minus"></span>
-                            </button>
-                        </td>
-                        <td md-cell class="client answerQuest">
-                            <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'answerQuestion')">
-                            <span class="glyphicon glyphicon-plus"></span> 
-                            </button>
-                            <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'answerQuestion')">
-                            <span class="glyphicon glyphicon-minus"></span>
-                            </button>
-                        </td>
-                        <td md-cell class="client partSong">
-                            <button type="button" class="btn btn-default" ng-click="positiveInteraction(client, $index, 'participateSong')">
-                            <span class="glyphicon glyphicon-plus"></span> 
-                            </button>
-                            <button type="button" class="btn btn-default" ng-click="negativeInteraction(client, $index, 'participateSong')">
-                            <span class="glyphicon glyphicon-minus"></span>
-                            </button>
-                        </td>-->
                     </tr>
-                    <tr md-row class="displayData" ng-repeat="client in clients track by $index" ng-hide="collectData">
-                        <td md-cell class="name"> {{ clients[$index].name }} </td>
-                        <td md-cell ng-repeat="target in dataTarget"> {{ client[target.name] }} / {{ client[target.name + 'Total'] }} </td>
-                        <!--<td md-cell class="clientResult"> {{ client.nameID }} / {{ client.nameIDTotal }} </td>
-                        <td md-cell class="clientResult"> {{ client.peerInteraction }} / {{ client.peerInteractionTotal }} </td>
-                        <td md-cell class="clientResult"> {{ client.groupInstruction }} / {{ client.groupInstructionTotal }} </td>
-                        <td md-cell class="clientResult"> {{ client.groupWithDisc }} / {{ client.groupWithDiscTotal }} </td>
-                        <td md-cell class="clientResult"> {{ client.answerQuestion }} / {{ client.answerQuestionTotal }} </td>
-                        <td md-cell class="clientResult"> {{ client.participateSong }} / {{ client.participateSongTotal }} </td>-->
+                    <tr md-row>
+                        <td md-cell>
+                            <md-button class="show-btn md-raised md-accent" ng-if="collectData" ng-click="showData()">See Results</md-button>
+                            <md-button class="show-btn md-raised md-accent" ng-if="!collectData" ng-click="hideData()">Back to Data Collection</md-button>
+                        </td>
+                        <td md-cell>
+                            <md-button class="show-btn md-raised md-accent" ng-click="postData()">Submit Data</md-button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -87,8 +38,6 @@
     </md-card>
 </md-content>
 <div class="container" layout "row" layout-align="center end" ng-cloak>
-    <md-button class="show-btn md-raised md-accent" ng-if="collectData" ng-click="showData()">See Results</md-button>
-    <md-button class="show-btn md-raised md-accent" ng-if="!collectData" ng-click="hideData()">Back to Data Collection</md-button>
     <md-fab-speed-dial md-direction="up" class="md-fling md-fab-bottom-right">
         <md-fab-trigger>
             <md-button aria-label="menu" class="md-fab">

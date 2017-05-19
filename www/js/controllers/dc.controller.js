@@ -51,5 +51,16 @@ angular
 
         $scope.hideData = function () {
             $scope.collectData = true;
-        }
+        };
+
+        $scope.postData = function () {
+            console.log($scope.clients);
+            $http({
+                method: 'POST',
+                url: '/api/results',
+                data: angular.toJson($scope.clients)
+            }).then(function(response){
+                console.log(response);
+            })
+        };
     }]);
