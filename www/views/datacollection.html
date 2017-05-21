@@ -5,15 +5,7 @@
                 <thead md-head>
                     <tr md-row>
                         <th md-column>Client Initials</th>
-                        <th md-column ng-repeat="target in dataTarget">
-                            <md-input-container>
-                                <md-select ng-model="selectedTarget" md-selected-text="getSelectedTarget()">
-                                    <md-optgroup label="targets">
-                                        <md-option ng-value="target" ng-repeat="target in targets">{{target}}</md-option>
-                                    </md-optgroup>
-                                </md-select>
-                            </md-input-container>
-                        </th>
+                        <th md-column ng-repeat="target in dataTarget"> {{ target }} </th>
                     </tr>
                 </thead>
                 <tbody md-body>
@@ -22,10 +14,10 @@
                             <md-input-container class="initials"><input type="text" ng-model="clients[$index].name" placeholder="Enter Initials Here"></md-input-container>
                         </td>
                         <td md-cell ng-repeat="target in dataTarget">
-                            <md-button class="md-icon-button md-primary" aria-label="positive" ng-click="positiveInteraction(client, $index, target.name)">
+                            <md-button class="md-icon-button md-primary" aria-label="positive" ng-click="positiveInteraction(client, $index, target)">
                                 <md-icon class="material-icons">add</md-icon>
                             </md-button>
-                            <md-button class="md-icon-button md-primary" aria-label="negative" ng-click="negativeInteraction(client, $index, target.name)">
+                            <md-button class="md-icon-button md-primary" aria-label="negative" ng-click="negativeInteraction(client, $index, target)">
                                 <md-icon class="material-icons">remove</md-icon>
                             </md-button>
                         </td>
@@ -41,7 +33,6 @@
                     </tr>
                 </tbody>
             </table>
-
         </md-table-container>
     </md-card>
 </md-content>
@@ -56,9 +47,11 @@
             <md-button aria-label="client" ng-click="addClient()" class="md-fab md-raised md-mini">
                 <md-icon class="material-icons">person add</md-icon>
             </md-button>
-            <md-button aria-label="target" ng-click="addTarget()" class="md-fab md-raised md-mini">
-                <md-icon class="material-icons">assessment</md-icon>
-            </md-button>
         </md-fab-actions>
     </md-fab-speed-dial>
+    <div flex="50" ng-repeat="target in targets">
+        <md-checkbox ng-checked="exists(target, dataTarget)" ng-click="toggle(target, dataTarget)">
+            {{ target }}
+        </md-checkbox>
+    </div>
 </div>

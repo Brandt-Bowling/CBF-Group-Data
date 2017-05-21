@@ -10,20 +10,23 @@ angular
 
         $scope.dataTarget = [];
 
-        $scope.addTarget = function () {
-            $scope.dataTarget.push({name: ''});
-        }
-
         $scope.targets = ['Name ID', 'Peer Interaction', 'Follow Group Instructions', 'Follow Instructions With Discrim',
             'Answer Question', 'Particiapte In Song', 'Participate Without Behavior', 'Tolerate Prompt'];
-        $scope.selectedTarget;
-        $scope.getSelectedTarget = function() {
-            if(this.selectedTarget !== undefined) {
-                return this.selectedTarget;
-            } else {
-                return 'Select a Target';
+
+        $scope.toggle = function (item, list) {
+            var idx = list.indexOf(item);
+            if (idx > -1) {
+                list.splice(idx, 1);
             }
-        }
+            else {
+                list.push(item);
+            }
+            console.log($scope.dataTarget);
+        };
+
+        $scope.exists = function (item, list) {
+            return list.indexOf(item) > -1;
+        };
 
         $scope.positiveInteraction = function (person, index, prop) {
             console.log('Positive interaction in', prop, 'with', person.name, index);
