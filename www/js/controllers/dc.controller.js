@@ -5,13 +5,24 @@ angular
         $scope.clients = [];
 
         $scope.addClient = function () {
-            $scope.clients.push({name: ''});
+            $scope.clients.push({ name: '' });
         }
 
         $scope.dataTarget = [];
 
         $scope.addTarget = function () {
             $scope.dataTarget.push({name: ''});
+        }
+
+        $scope.targets = ['Name ID', 'Peer Interaction', 'Follow Group Instructions', 'Follow Instructions With Discrim',
+            'Answer Question', 'Particiapte In Song', 'Participate Without Behavior', 'Tolerate Prompt'];
+        $scope.selectedTarget;
+        $scope.getSelectedTarget = function() {
+            if(this.selectedTarget !== undefined) {
+                return this.selectedTarget;
+            } else {
+                return 'Select a Target';
+            }
         }
 
         $scope.positiveInteraction = function (person, index, prop) {
@@ -59,7 +70,7 @@ angular
                 method: 'POST',
                 url: '/api/results',
                 data: angular.toJson($scope.clients)
-            }).then(function(response){
+            }).then(function (response) {
                 console.log(response);
             })
         };
