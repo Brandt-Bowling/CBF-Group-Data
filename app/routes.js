@@ -4,8 +4,6 @@ var router = express.Router();
 
 //api goes here
 router.post('/results', function (request, response) {
-    console.log('request', request);
-    // console.log('request body', request.body);
     client.create(request.body);
     response.send(client);
 });

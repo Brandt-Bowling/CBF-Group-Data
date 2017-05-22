@@ -11,7 +11,7 @@ angular
         $scope.dataTarget = [];
 
         $scope.targets = ['Name ID', 'Peer Interaction', 'Follow Group Instructions', 'Follow Instructions With Discrim',
-            'Answer Question', 'Particiapte In Song', 'Participate Without Behavior', 'Tolerate Prompt'];
+            'Answer Question', 'Particiapte In Song', 'Participate Without Behavior', 'Tolerate Prompt', 'Attend For 50%'];
 
         $scope.toggle = function (item, list) {
             var idx = list.indexOf(item);
