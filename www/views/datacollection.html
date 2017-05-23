@@ -22,6 +22,14 @@
                             </md-button>
                         </td>
                     </tr>
+                    <tr md-row ng-repeat="client in clients track by $index" ng-hide="collectData">
+                        <td md-cell>
+                            <p>{{ client.name }}</p>
+                        </td>
+                        <td md-cell ng-repeat="target in dataTarget">
+                            <p>{{ client[target].positive }} / {{ client[target].totalNumber }}</p>
+                        </td>
+                    </tr>
                     <tr md-row>
                         <td md-cell>
                             <md-button class="show-btn md-raised md-accent" ng-if="collectData" ng-click="showData()">See Results</md-button>

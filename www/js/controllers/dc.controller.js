@@ -31,30 +31,26 @@ angular
         $scope.positiveInteraction = function (person, index, prop) {
             console.log('Positive interaction in', prop, 'with', person.name, index);
 
-            var propTotal = prop + 'Total';
-
             if (!person.hasOwnProperty(prop)) {
-                person[prop] = 1;
-                person[propTotal] = 1;
+                person[prop] = { positive: 1, totalNumber: 1 };
+                
             } else {
-                person[prop]++;
-                person[propTotal]++;
+                person[prop].positive++;
+                person[prop].totalNumber++;
             }
-            console.log('total in', prop, '=', person[propTotal], person);
+            console.log(person[prop].positive, '/', person[prop].totalNumber);
         }
 
         $scope.negativeInteraction = function (person, index, prop) {
             console.log('Missed interaction in', prop, 'with', person.name, index);
 
-            var propTotal = prop + 'Total';
-
             if (!person.hasOwnProperty(prop)) {
-                person[prop] = 0;
-                person[propTotal] = 1;
+                person[prop] = { positive: 0, totalNumber: 1 };
             } else {
-                person[propTotal]++;
+                person[prop].totalNumber++;
             }
-            console.log('total in', prop, '=', person[propTotal]);
+
+            console.log(person[prop].positive, '/', person[prop].totalNumber);
         }
 
         $scope.collectData = true;
