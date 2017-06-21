@@ -25,7 +25,6 @@ app.get('/', function (request, response) {
 // configuration ===================================================================================================================
 
 mongoose.connect(database.url);                                                   //initialize connection to database
-var db = mongoose.connection;
 app.use(express.static(path.join(__dirname, '/www')));                            //set the static files location
 app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));  //finally getting the scripts to load on the html!
 
