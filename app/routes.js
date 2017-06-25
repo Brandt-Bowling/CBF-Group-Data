@@ -4,13 +4,15 @@ var router = express.Router();
 
 //api goes here
 router.post('/results', function (request, response) {
-    client.create(request.body);
-    response.send(client);
+    client.create(request.body).then(function (client) {
+        response.send(client);
+    })
 });
 
-// router.get('/results/:dateCreated', function(request, response) {
-//     request.params
-//     mongoose.get(client, '')
-// })
+router.get('/results', function (request, response) {
+    client.find({}).then(function(clients) {
+        response.send(clients);
+    });
+});
 
 module.exports = router;

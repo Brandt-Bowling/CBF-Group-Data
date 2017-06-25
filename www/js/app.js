@@ -47,6 +47,14 @@ angular
                 data: {
                     requiresLogin : true
                 }
+            .state('results', {
+                url: '/results',
+                templateUrl: '../views/results.html',
+                controller: 'resultsController',
+                data: {
+                    requiresLogin: true
+                }
+            })
             });
         //push the jwt onto the array of http interceptors
         $httpProvider.interceptors.push('jwtInterceptor');
