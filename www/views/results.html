@@ -2,7 +2,11 @@
     <md-card class="results-table">
         <md-card-content>
             <h2>Group Data Results</h2>
-            
+            <md-button class="show-btn md-raised md-accent" ng-click="getData()">See Today's Results</md-button>
+            <div ng-repeat="client in clients">
+                <div> {{client}} </div>
+
+            </div>
         </md-card-content>
     </md-card>
 </md-content>

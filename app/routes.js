@@ -10,7 +10,7 @@ router.post('/results', function (request, response) {
 });
 
 router.get('/results', function (request, response) {
-    client.find({}).then(function(clients) {
+    client.find({date: request.query.date}).then(function(clients) {
         response.send(clients);
     });
 });

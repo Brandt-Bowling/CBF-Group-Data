@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var clientData = new Schema({
     name: { type: String, required: true },
-    date: { type: Date, default: Date.now },
+    date: { type: String, default: new Date().toDateString() },
     "Name ID":                          { positive: Number, totalNumber: Number },
     "Peer Interaction":                 { positive: Number, totalNumber: Number },
     "Follow Group Instructions":        { positive: Number, totalNumber: Number },

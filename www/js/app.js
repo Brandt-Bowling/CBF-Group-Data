@@ -46,7 +46,7 @@ angular
                 controller: 'DataCollectionController',
                 data: {
                     requiresLogin : true
-                }
+                }})
             .state('results', {
                 url: '/results',
                 templateUrl: '../views/results.html',
@@ -54,7 +54,6 @@ angular
                 data: {
                     requiresLogin: true
                 }
-            })
             });
         //push the jwt onto the array of http interceptors
         $httpProvider.interceptors.push('jwtInterceptor');
