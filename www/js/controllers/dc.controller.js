@@ -5,7 +5,7 @@ angular
         $scope.clients = [];
 
         $scope.addClient = function () {
-            $scope.clients.push({ name: '', date: new Date.now() });
+            $scope.clients.push({ name: ''});
         }
 
         $scope.dataTarget = [];
