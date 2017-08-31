@@ -11,5 +11,12 @@ angular
                 $scope.clients = response.data;
                 console.log(response);
             })
+
+            $scope.seeData = true;
         }
+
+        $scope.seeData = false;
+
+        $scope.targets = ['Name ID', 'Peer Interaction', 'Follow Group Instructions', 'Follow Instructions With Discrim',
+        'Answer Question', 'Particiapte In Song', 'Participate Without Behavior', 'Tolerate Prompt', 'Attend For 50%'];
     }]);

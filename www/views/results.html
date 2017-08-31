@@ -1,12 +1,10 @@
-<md-content class="results">
-    <md-card class="results-table">
-        <md-card-content>
-            <h2>Group Data Results</h2>
-            <md-button class="show-btn md-raised md-accent" ng-click="getData()">See Today's Results</md-button>
-            <div ng-repeat="client in clients">
-                <div> {{client}} </div>
-
-            </div>
+<h2 layout="row" layout-align="center center">Group Data Results</h2>
+<md-content layout="row" layout-align="center center" class="results">
+    <md-card flex="25" layout-padding md-theme="default" ng-repeat="client in clients">
+        <md-card-content flex>{{client.name}}</md-card-content>
+        <md-card-content flex ng-repeat="prop in client track by $index">
+            {{ targets[$index] }} : {{ prop.positive }} / {{ prop.totalNumber }}
         </md-card-content>
     </md-card>
+    <md-button class="show-btn md-raised md-accent" ng-hide="seeData" ng-click="getData()">See Today's Results</md-button>
 </md-content>
