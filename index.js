@@ -24,7 +24,15 @@ app.get('/', function (request, response) {
 
 // configuration ===================================================================================================================
 
-mongoose.connect(database.url);                                                   //initialize connection to database
+var promise = mongoose.connect(database.url_prod, {
+    useMongoClient: true
+}, function(err, db){
+    if (err) {
+        console.log('Unable to connect to mongoDB server. Error:', err);
+    } else {
+        console.log('Connection established to', database.url_prod);
+    }
+});                                             //initialize connection to database
 app.use(express.static(path.join(__dirname, '/www')));                            //set the static files location
 app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));  //finally getting the scripts to load on the html!
 
