@@ -24,7 +24,7 @@ angular
             tokenGetter: function() {
                 return localStorage.getItem('id_token');
             },
-            whiteListedDomains: ['localhost'],
+           // whiteListedDomains: ['localhost'],
             unauthenticatedRedirectPath: '/home'
         });
         //set colors for material design theme

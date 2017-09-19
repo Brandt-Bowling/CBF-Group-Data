@@ -10,6 +10,7 @@ angular
             }).then(function (response) {
                 $scope.clients = response.data;
                 console.log(response);
+                console.log("Successfully retrieved results from API endpoint");                
             })
 
             $scope.seeData = true;

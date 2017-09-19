@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-var jwt = require('express-jwt');
 var cors = require('cors');
 var path = require('path');
 var port = process.env.PORT || 5000;
@@ -14,7 +13,6 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // routes ==========================================================================================================================
-
 app.use('/api', routes);
 
 //render single index file for front end
@@ -23,8 +21,8 @@ app.get('/', function (request, response) {
 });
 
 // configuration ===================================================================================================================
-
-var promise = mongoose.connect(database.url_prod, {
+//initialize connection to database
+mongoose.connect(database.url_prod, {
     useMongoClient: true
 }, function(err, db){
     if (err) {
@@ -32,15 +30,9 @@ var promise = mongoose.connect(database.url_prod, {
     } else {
         console.log('Connection established to', database.url_prod);
     }
-});                                             //initialize connection to database
+});    
 app.use(express.static(path.join(__dirname, '/www')));                            //set the static files location
 app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));  //finally getting the scripts to load on the html!
-
-//attach jwt that is stored in local storage to header for http requests when api is used
-var authCheck = jwt({
-    secret: new Buffer('q3Vnp5j_RAZ-Ymsacq1Y7-pTVo6eVR_jI-_j3gUWUf1Bk_k65vvziWvxqh5Wdb9P'),
-    audience: 'FiopVAA30FavmLNDk1z7mIInVHo7stfa'
-});
 
 // listen ==========================================================================================================================
 
