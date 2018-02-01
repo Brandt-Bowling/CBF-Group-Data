@@ -1,4 +1,3 @@
-console.log(process.env.DB);
 var express = require('express');
 var app = express();
 var cors = require('cors');
@@ -8,7 +7,6 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var routes = require('./app/routes');
 app.use(cors());
-console.log(process.env.TEST + '\n')
 
 // body-parser middleware ==========================================================================================================
 app.use(bodyParser.json());
@@ -23,7 +21,7 @@ app.get('/', function (request, response) {
 
 // configuration ===================================================================================================================
 //initialize connection to database
-mongoose.connect('mongodb://localhost/cbf-data', {
+mongoose.connect(process.env.DB, {
     useMongoClient: true
 }, function(err, db){
     if (err) {
