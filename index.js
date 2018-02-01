@@ -1,4 +1,3 @@
-require('dotenv').config()
 console.log(process.env.DB);
 var express = require('express');
 var app = express();
@@ -7,7 +6,6 @@ var path = require('path');
 var port = process.env.PORT || 5000;
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var database = require('./config/database.js');
 var routes = require('./app/routes');
 app.use(cors());
 console.log(process.env.TEST + '\n')
@@ -25,7 +23,7 @@ app.get('/', function (request, response) {
 
 // configuration ===================================================================================================================
 //initialize connection to database
-mongoose.connect(process.env.DB, {
+mongoose.connect('mongodb://localhost/cbf-data', {
     useMongoClient: true
 }, function(err, db){
     if (err) {
